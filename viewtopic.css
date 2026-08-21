@@ -204,19 +204,30 @@
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 205px;
+
+  height: 122px;
   min-height: 122px;
+  max-height: 122px;
+
   margin-bottom: 12px;
+
   overflow: hidden;
+
   background: var(--neutral);
   border-radius: 8px;
 }
 
 .bs-member-head__identity {
   min-width: 0;
+  height: 122px;
+
   padding: 22px 28px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  overflow: hidden;
 }
 
 .bs-profile-name-source {
@@ -227,43 +238,59 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   min-width: 0;
+
   line-height: .9;
 }
 
 .bs-profile-first {
   display: block;
+
   max-width: 100%;
+
   color: var(--accentClr);
+
   font-family: Georgia, serif;
   font-size: 36px;
   font-style: italic;
   font-weight: 400;
+
   overflow-wrap: anywhere;
 }
 
 .bs-profile-last {
   display: block;
+
   max-width: 100%;
+
   margin-top: 5px;
+
   color: var(--textColor);
+
   font-family: Georgia, serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 1;
+
   text-transform: uppercase;
   letter-spacing: .8px;
+
   overflow-wrap: anywhere;
 }
 
 .bs-profile-rank {
   width: max-content;
   max-width: 100%;
+
   margin-top: 11px;
   padding: 5px 7px 4px;
+
   border: 1px solid var(--accentClr);
   border-radius: 2px;
+
   opacity: .7;
+
   font-family: Georgia, serif;
   font-size: 9px;
   font-style: italic;
@@ -277,49 +304,99 @@
 
 .bs-profile-rank img {
   display: block;
+
   max-width: 100%;
   max-height: 20px;
 }
 
 
-/* =========================================================
-   GIF PERSO — hauteur fixe
-   ========================================================= */
+/* GIF PERSONNAGE EN HAUT
+   Le conteneur et le GIF restent TOUJOURS à 122px de haut.
+   Forumactif peut entourer le champ image d'un <a>, <span> ou <div>,
+   donc tous les wrappers sont également verrouillés.
+*/
 
 .bs-member-head__gif {
-  min-width: 0;
-  height: 122px;
+  position: relative;
+
+  width: 205px;
+
+  height: 122px !important;
+  min-height: 122px !important;
+  max-height: 122px !important;
+
+  overflow: hidden;
 
   border-left: 1px solid var(--neutralDarker);
 
   background: var(--neutralDark);
-
-  overflow: hidden;
 }
 
 .bs-member-head__gif-placeholder {
-  width: 100%;
-  height: 122px;
+  position: absolute;
+
+  inset: 0;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-width: 0 !important;
+  min-height: 0 !important;
+
+  max-width: none !important;
+  max-height: none !important;
 
   overflow: hidden;
 
   background: var(--neutralDark);
 }
 
-.bs-member-head__gif img,
-.bs-member-head__gif-placeholder img {
+.bs-member-head__gif-placeholder > a,
+.bs-member-head__gif-placeholder > span,
+.bs-member-head__gif-placeholder > div,
+.bs-member-head__gif > a,
+.bs-member-head__gif > span,
+.bs-member-head__gif > div {
+  position: absolute;
+
+  inset: 0;
+
   display: block;
 
   width: 100% !important;
-  height: 122px !important;
+  height: 100% !important;
 
-  min-height: 0 !important;
-  max-height: 122px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 
-  object-fit: cover;
-  object-position: center;
+  overflow: hidden;
+}
 
-  border: 0;
+.bs-member-head__gif img,
+.bs-member-head__gif-placeholder img {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-width: 100% !important;
+  min-height: 100% !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
 }
 
 
@@ -341,26 +418,34 @@
 }
 
 
-/* =========================================================
-   AVATAR — ratio fixe 400x640
-   ========================================================= */
+/* ==========================================================================
+   AVATAR — RATIO FIXE 400x640
+   ========================================================================== */
 
 .bs-avatar {
   position: relative;
+
   width: 100%;
+
   margin-bottom: 9px;
   padding: 8px;
 
+  overflow: visible;
+
   background: var(--neutral);
   border-radius: 8px;
-
-  overflow: hidden;
 }
+
+/*
+ * Le cadre intérieur garde toujours le ratio 400x640,
+ * soit 5 / 8.
+ */
 
 .bs-avatar > a,
 .bs-avatar > span,
 .bs-avatar > div:not(.presence) {
   display: block;
+
   width: 100%;
 }
 
@@ -368,32 +453,89 @@
   display: block;
 
   width: 100% !important;
+  height: auto !important;
+
   aspect-ratio: 5 / 8;
 
-  height: auto !important;
+  max-width: 100% !important;
   max-height: none !important;
 
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover !important;
+  object-position: center !important;
 
   border-radius: 6px;
 }
 
 .bs-avatar .presence {
-  position: absolute;
-  right: 13px;
-  bottom: 13px;
   display: none;
-  margin: 0;
-  padding: 4px 6px;
-  background: var(--neutral);
-  border-radius: 4px;
-  color: var(--accentClr);
-  font-size: 7px;
 }
 
+/*
+ * Forumactif conserve son texte natif dans la balise,
+ * mais on le masque visuellement pour afficher notre
+ * statut personnalisé "EN ORBITE".
+ */
+
 .bs-avatar .presence.online {
-  display: inline-flex;
+  position: absolute;
+
+  left: -25px;
+  top: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 27px;
+  height: 98px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: visible;
+
+  background: var(--accentClr);
+  border: 0;
+  border-radius: 5px 0 0 5px;
+
+  color: transparent;
+  font-size: 0;
+
+  z-index: 8;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .06);
+}
+
+.bs-avatar .presence.online::before {
+  content: "EN ORBITE";
+
+  display: block;
+
+  color: var(--neutral);
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.bs-avatar .presence.online::after {
+  content: "✦";
+
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+
+  color: var(--neutral);
+  font-size: 7px;
+  line-height: 1;
+
+  transform: translateX(-50%);
+  opacity: .8;
 }
 
 
@@ -756,26 +898,29 @@
   border-radius: 8px;
 }
 
-/* =========================================================
-   IMAGE SHIP — hauteur fixe
-   ========================================================= */
-
 .bs-member-footer__image {
+  position: relative;
+
   width: 235px;
   height: 92px;
 
+  min-height: 92px;
+  max-height: 92px;
+
   padding: 8px;
 
-  border-right: 1px solid var(--neutralDarker);
-
   overflow: hidden;
+
+  border-right: 1px solid var(--neutralDarker);
 }
 
 .bs-ship-image-placeholder {
-  width: 100%;
-  height: 76px;
+  position: relative;
 
-  min-height: 0 !important;
+  width: 100%;
+  height: 76px !important;
+
+  min-height: 76px !important;
   max-height: 76px !important;
 
   overflow: hidden;
@@ -785,6 +930,20 @@
   background: var(--neutralDark);
 }
 
+.bs-ship-image-placeholder > a,
+.bs-ship-image-placeholder > span,
+.bs-ship-image-placeholder > div {
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden;
+}
+
 .bs-member-footer__image img,
 .bs-ship-image-placeholder img {
   display: block;
@@ -792,13 +951,16 @@
   width: 100% !important;
   height: 76px !important;
 
-  min-height: 0 !important;
+  min-height: 76px !important;
   max-height: 76px !important;
 
-  object-fit: cover;
-  object-position: center;
+  margin: 0 !important;
+  padding: 0 !important;
 
-  border-radius: 5px;
+  border-radius: 5px !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 .bs-member-footer__relationship {
@@ -994,6 +1156,18 @@
 
   .bs-member-head {
     grid-template-columns: minmax(0, 1fr) 96px;
+
+    height: 122px;
+    min-height: 122px;
+    max-height: 122px;
+  }
+
+  .bs-member-head__gif {
+    width: 96px;
+
+    height: 122px !important;
+    min-height: 122px !important;
+    max-height: 122px !important;
   }
 
   .bs-member-head__identity {
@@ -1033,6 +1207,10 @@
 
   .bs-member-footer__image {
     width: 125px;
+    height: 92px;
+
+    min-height: 92px;
+    max-height: 92px;
   }
 
   .bs-contact-source {
@@ -1056,6 +1234,14 @@
 
   .bs-member-head {
     grid-template-columns: minmax(0, 1fr) 78px;
+
+    height: 122px;
+    min-height: 122px;
+    max-height: 122px;
+  }
+
+  .bs-member-head__gif {
+    width: 78px;
   }
 
   .bs-member-head__identity {
@@ -1076,6 +1262,10 @@
 
   .bs-member-footer__image {
     width: 92px;
+    height: 92px;
+
+    min-height: 92px;
+    max-height: 92px;
   }
 
   .bs-member-footer__relationship {
