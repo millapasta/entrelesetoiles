@@ -1377,3 +1377,114 @@
     width: 100%;
   }
 }
+
+/* =========================================================
+   FIX — BOUTONS HEADER SUJET
+   ========================================================= */
+
+.bs-topic-heading__actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+
+.bs-topic-heading__actions a.bs-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-width: 120px !important;
+  min-height: 38px !important;
+
+  padding: 0 18px !important;
+  margin: 0 !important;
+
+  box-sizing: border-box !important;
+
+  background: var(--neutral) !important;
+  border: 1px solid var(--neutralDarker) !important;
+  border-radius: 6px !important;
+
+  color: var(--textColor) !important;
+
+  font-family: var(--font), sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+
+  box-shadow: none !important;
+
+  transition: .2s ease !important;
+}
+
+
+/* POSTER */
+
+.bs-topic-heading__actions a.bs-btn.bs-btn--primary {
+  background: var(--accentClr) !important;
+  border-color: var(--accentClr) !important;
+  color: #fff !important;
+}
+
+
+/* RÉPONDRE */
+
+.bs-topic-heading__actions a.bs-btn:not(.bs-btn--primary) {
+  background: var(--neutralDark) !important;
+  border-color: var(--neutralDarker) !important;
+  color: var(--textColor) !important;
+}
+
+
+/* HOVERS */
+
+.bs-topic-heading__actions a.bs-btn.bs-btn--primary:hover {
+  background: var(--accentClrDark) !important;
+  border-color: var(--accentClrDark) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.bs-topic-heading__actions a.bs-btn:not(.bs-btn--primary):hover {
+  background: var(--neutral) !important;
+  border-color: var(--accentClr) !important;
+  color: var(--accentClr) !important;
+  transform: translateY(-1px);
+}
+
+
+/* Pagination éventuelle sous les boutons */
+
+.bs-topic-heading__pagination {
+  flex-basis: 100%;
+  margin-top: 4px;
+  text-align: right;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+  .bs-topic-heading__actions {
+    justify-content: flex-start !important;
+  }
+
+  .bs-topic-heading__actions a.bs-btn {
+    min-width: 0 !important;
+    min-height: 36px !important;
+    padding: 0 14px !important;
+    font-size: 8px !important;
+  }
+
+  .bs-topic-heading__pagination {
+    text-align: left;
+  }
+}
