@@ -1,0 +1,1049 @@
+/* ==========================================================================
+   BETWEEN STARS — VIEWTOPIC_BODY
+   CSS uniquement pour le template sujet
+   ========================================================================== */
+
+/*
+ * Cette feuille utilise les variables déjà présentes dans ton Blank Theme :
+ * --neutral
+ * --neutralDark
+ * --neutralDarker
+ * --accentClr
+ * --accentClrDark
+ * --textColor
+ * --normal-size
+ */
+
+
+/* ==========================================================================
+   NAVIGATION DU SUJET
+   ========================================================================== */
+
+.bs-topic-nav,
+.bs-topic-heading,
+.bs-posts,
+.bs-topic-bottom,
+.bs-quickreply {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bs-topic-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.bs-topic-nav .navigation_chain {
+  flex: 1;
+}
+
+.bs-topic-nav__actions,
+.bs-topic-bottom,
+.bs-topic-bottom > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.bs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 7px 11px !important;
+  border: 1px solid var(--neutralDarker);
+  border-radius: 5px;
+  background: var(--neutral);
+  color: var(--textColor);
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  transition: .2s ease;
+}
+
+.bs-btn:hover {
+  color: var(--accentClr);
+  border-color: var(--accentClr);
+}
+
+.bs-btn--primary {
+  background: var(--accentClr);
+  border-color: var(--accentClr);
+  color: var(--neutral) !important;
+}
+
+.bs-btn--primary:hover {
+  background: var(--accentClrDark);
+  border-color: var(--accentClrDark);
+  color: var(--neutral) !important;
+}
+
+
+/* ==========================================================================
+   TITRE DU SUJET
+   ========================================================================== */
+
+.bs-topic-heading {
+  min-height: 100px;
+  margin-bottom: 15px;
+  padding: 24px 28px;
+  background: var(--neutral);
+  border-radius: 8px;
+}
+
+.bs-topic-heading__eyebrow {
+  margin-bottom: 7px;
+  opacity: .6;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.bs-topic-heading h1 {
+  margin: 0;
+  color: var(--accentClr);
+  font-family: Georgia, serif;
+  font-size: 29px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: left;
+  text-transform: none;
+}
+
+.bs-topic-heading__posters {
+  margin-top: 10px;
+  opacity: .65;
+  font-size: 9px;
+}
+
+.bs-topic-heading .poster-list {
+  justify-content: flex-start;
+  margin: 10px 0 0;
+}
+
+
+/* ==========================================================================
+   PARTICIPANTS DU SUJET
+   ========================================================================== */
+
+.poster-list {
+  display: flex;
+  align-items: center;
+}
+
+.poster {
+  background: var(--poster-avatar);
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  margin-left: -8px;
+  border: 2px solid var(--neutralDark);
+  background-size: cover;
+  background-position: center;
+}
+
+.poster a {
+  display: block;
+  height: 100%;
+}
+
+.poster-count {
+  margin-left: 8px;
+}
+
+.poster-more-list {
+  display: none;
+}
+
+.poster-more {
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.poster-more:hover .poster-more-list {
+  display: block;
+  position: absolute;
+  top: 29px;
+  width: 150px;
+  padding: 10px;
+  background: var(--neutralDarker);
+  border-radius: 5px;
+  z-index: 20;
+}
+
+
+/* ==========================================================================
+   STRUCTURE DE CHAQUE MESSAGE
+   ========================================================================== */
+
+.bs-post {
+  display: grid !important;
+  grid-template-columns: 235px minmax(0, 1fr) !important;
+  grid-template-rows: auto auto auto !important;
+  width: 100%;
+  margin-bottom: 20px;
+  background: transparent !important;
+  border: 0 !important;
+  overflow: visible;
+}
+
+
+/* ==========================================================================
+   BANDEAU IDENTITÉ
+   ========================================================================== */
+
+.bs-member-head {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 205px;
+  min-height: 122px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: var(--neutral);
+  border-radius: 8px;
+}
+
+.bs-member-head__identity {
+  min-width: 0;
+  padding: 22px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bs-profile-name-source {
+  display: none !important;
+}
+
+.bs-profile-name-display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  line-height: .9;
+}
+
+.bs-profile-first {
+  display: block;
+  max-width: 100%;
+  color: var(--accentClr);
+  font-family: Georgia, serif;
+  font-size: 36px;
+  font-style: italic;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.bs-profile-last {
+  display: block;
+  max-width: 100%;
+  margin-top: 5px;
+  color: var(--textColor);
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  overflow-wrap: anywhere;
+}
+
+.bs-profile-rank {
+  width: max-content;
+  max-width: 100%;
+  margin-top: 11px;
+  padding: 5px 7px 4px;
+  border: 1px solid var(--accentClr);
+  border-radius: 2px;
+  opacity: .7;
+  font-family: Georgia, serif;
+  font-size: 9px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.bs-profile-rank:empty {
+  display: none;
+}
+
+.bs-profile-rank img {
+  display: block;
+  max-width: 100%;
+  max-height: 20px;
+}
+
+
+/* GIF PERSONNAGE EN HAUT */
+
+.bs-member-head__gif {
+  min-width: 0;
+  border-left: 1px solid var(--neutralDarker);
+  background: var(--neutralDark);
+}
+
+.bs-member-head__gif-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 122px;
+  background: var(--neutralDark);
+}
+
+.bs-member-head__gif img,
+.bs-member-head__gif-placeholder img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 122px;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* ==========================================================================
+   CORPS : PROFIL + MESSAGE
+   ========================================================================== */
+
+.bs-post-grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 235px minmax(0, 1fr);
+  gap: 12px;
+  min-width: 0;
+}
+
+.bs-profile,
+.bs-message {
+  min-width: 0;
+}
+
+
+/* ==========================================================================
+   AVATAR
+   ========================================================================== */
+
+.bs-avatar {
+  position: relative;
+  margin-bottom: 9px;
+  padding: 8px;
+  background: var(--neutral);
+  border-radius: 8px;
+}
+
+.bs-avatar img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.bs-avatar .presence {
+  position: absolute;
+  right: 13px;
+  bottom: 13px;
+  display: none;
+  margin: 0;
+  padding: 4px 6px;
+  background: var(--neutral);
+  border-radius: 4px;
+  color: var(--accentClr);
+  font-size: 7px;
+}
+
+.bs-avatar .presence.online {
+  display: inline-flex;
+}
+
+
+/* ==========================================================================
+   ONGLETS PROFIL
+   I   = aesthetic
+   II  = character
+   III = basics
+   IV  = badges
+   ========================================================================== */
+
+.bs-profile-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow: hidden;
+  background: var(--neutral);
+  border-bottom: 1px solid var(--neutralDarker);
+  border-radius: 8px 8px 0 0;
+}
+
+.bs-tab {
+  width: 100%;
+  height: 39px;
+  min-height: 39px;
+  margin: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  border-right: 1px solid var(--neutralDarker) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--textColor) !important;
+  cursor: pointer;
+  font-family: Georgia, serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  line-height: 39px;
+  text-align: center;
+  opacity: .6;
+}
+
+.bs-tab:last-child {
+  border-right: 0 !important;
+}
+
+.bs-tab:hover,
+.bs-tab.is-active {
+  color: var(--accentClr) !important;
+  background: var(--neutralDark) !important;
+  opacity: 1;
+}
+
+.bs-profile-panels {
+  overflow: hidden;
+  background: var(--neutral);
+  border-radius: 0 0 8px 8px;
+}
+
+.bs-profile-panel {
+  display: none;
+  min-height: 160px;
+  padding: 15px;
+}
+
+.bs-profile-panel.is-active {
+  display: block;
+}
+
+.bs-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 12px;
+}
+
+.bs-panel-title span {
+  white-space: nowrap;
+  color: var(--accentClr);
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.bs-panel-title i {
+  flex: 1;
+  height: 1px;
+  background: var(--neutralDarker);
+}
+
+
+/* ==========================================================================
+   CHAMPS PROFIL DÉPLACÉS PAR LE JAVASCRIPT
+   ========================================================================== */
+
+.bs-slot--character,
+.bs-slot--basics {
+  display: grid;
+  gap: 7px;
+}
+
+.bs-slot .user_field {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  width: 100%;
+  margin: 0;
+  font-size: 8px;
+  line-height: 1.45;
+}
+
+.bs-slot .field_label {
+  color: var(--accentClr);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.bs-slot .field_content {
+  min-width: 0;
+  color: var(--textColor);
+  opacity: .75;
+  overflow-wrap: anywhere;
+}
+
+.bs-slot .field_separator {
+  display: none;
+}
+
+
+/* AESTHETIC : BBCode libre */
+
+.bs-slot--aesthetic {
+  min-width: 0;
+  width: 100%;
+}
+
+.bs-slot--aesthetic > * {
+  max-width: 100%;
+}
+
+.bs-slot--aesthetic img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* BADGES */
+
+.bs-slot--badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bs-slot--badges .bs-awards-source,
+.bs-slot--badges #list_awards {
+  display: contents;
+}
+
+#list_awards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.award {
+  width: 38px;
+  height: 38px;
+  position: relative;
+  background-image: var(--award-image);
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.award:hover .award_tooltiptext {
+  display: block;
+}
+
+.award_tooltiptext {
+  width: max-content;
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 25px;
+  padding: 5px;
+  background: var(--neutral);
+  border: 1px solid var(--neutralDark);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 11px;
+  z-index: 20;
+}
+
+.award_tooltiptext_title {
+  font-weight: 600;
+}
+
+
+/* Source originale cachée */
+
+.bs-profile-fields-source {
+  display: none !important;
+}
+
+
+/* ==========================================================================
+   META DU MESSAGE
+   ========================================================================== */
+
+.bs-message-meta {
+  display: grid;
+  grid-template-columns: 31px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  margin-bottom: 9px;
+}
+
+.bs-post-number {
+  width: 31px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--neutral);
+  border-radius: 50%;
+  color: var(--accentClr);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.bs-post-date {
+  min-width: 0;
+  padding: 9px 13px;
+  background: var(--neutral);
+  border-radius: 7px;
+  color: var(--textColor);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+
+.bs-post-subject {
+  margin-right: 6px;
+  opacity: .6;
+}
+
+
+/* Boutons citer / éditer / supprimer / IP */
+
+.bs-message-actions {
+  display: flex !important;
+  flex-grow: 0 !important;
+  gap: 6px;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+
+.bs-message-actions li {
+  margin: 0;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.bs-message-actions li:empty,
+.bs-message-actions a[href=""] {
+  display: none !important;
+}
+
+.bs-message-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 7px 10px;
+  background: var(--neutral);
+  border-radius: 6px;
+  color: var(--textColor);
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  opacity: .65;
+}
+
+.bs-message-actions a:hover {
+  color: var(--accentClr);
+  background: var(--neutralDark);
+  opacity: 1;
+}
+
+
+/* ==========================================================================
+   CONTENU DU MESSAGE
+   ========================================================================== */
+
+.bs-message-content {
+  min-height: 470px;
+  padding: 25px 28px 55px !important;
+  background: var(--neutral);
+  border-radius: 8px;
+  color: var(--textColor);
+  font-size: var(--normal-size);
+  line-height: 1.8;
+}
+
+.bs-message-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.bs-message-content .signature_div {
+  margin-top: 35px;
+  padding-top: 20px;
+  border-top: 1px solid var(--neutralDarker);
+}
+
+
+/* ==========================================================================
+   LIKE
+   ========================================================================== */
+
+.bs-like-row {
+  padding: 10px 13px 4px;
+}
+
+.bs-like-row .rep-button,
+.bs-like-row .rep-button:active,
+.bs-like-row .rep-button:focus {
+  margin: 0;
+  padding: 5px 7px !important;
+  border: 0;
+  background: transparent;
+  color: var(--textColor);
+  box-shadow: none;
+  opacity: .65;
+}
+
+.bs-like-row .rep-button:hover {
+  color: var(--accentClr);
+  background: transparent;
+  opacity: 1;
+}
+
+
+/* ==========================================================================
+   BARRE BASSE
+   image ship / partenaire / contacts
+   ========================================================================== */
+
+.bs-member-footer {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 235px minmax(220px, 1fr) auto;
+  margin-top: 12px;
+  overflow: hidden;
+  background: var(--neutral);
+  border-radius: 8px;
+}
+
+.bs-member-footer__image {
+  width: 235px;
+  min-height: 92px;
+  padding: 8px;
+  border-right: 1px solid var(--neutralDarker);
+}
+
+.bs-ship-image-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 76px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: var(--neutralDark);
+}
+
+.bs-member-footer__image img,
+.bs-ship-image-placeholder img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 76px;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bs-member-footer__relationship {
+  min-width: 0;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bs-member-footer__relationship small {
+  margin-bottom: 6px;
+  opacity: .6;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.bs-member-footer__relationship strong {
+  max-width: 100%;
+  color: var(--accentClr);
+  font-family: Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+
+/* Contacts Forumactif */
+
+.bs-contact-source {
+  min-width: 0;
+  max-width: 100%;
+  padding: 15px 18px;
+  border-left: 1px solid var(--neutralDarker);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.bs-contact-source a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: 6px 8px;
+  background: var(--neutralDark);
+  border-radius: 5px;
+}
+
+.bs-contact-source img {
+  display: block;
+  max-width: 100%;
+  max-height: 22px;
+}
+
+
+/* ==========================================================================
+   BAS DU SUJET
+   ========================================================================== */
+
+.bs-topic-bottom {
+  justify-content: space-between;
+  margin: 5px 0 15px;
+}
+
+
+/* ==========================================================================
+   QUICK REPLY
+   ========================================================================== */
+
+#quickreply_content.bs-quickreply {
+  display: block !important;
+  justify-content: initial !important;
+  margin: 15px 0 25px;
+  padding: 18px !important;
+  background: var(--neutral) !important;
+  border-radius: 8px;
+}
+
+.bs-quickreply__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.bs-quickreply__title span {
+  white-space: nowrap;
+  color: var(--accentClr);
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+}
+
+.bs-quickreply__title i {
+  flex: 1;
+  height: 1px;
+  background: var(--neutralDarker);
+}
+
+.bs-quickreply__grid {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.bs-quickreply__identity {
+  min-width: 0;
+  text-align: center;
+}
+
+.bs-quickreply__avatar {
+  width: 78px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--neutralDark);
+  border: 1px solid var(--neutralDarker);
+  border-radius: 7px;
+}
+
+.bs-quickreply__avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bs-quickreply__username {
+  display: block;
+  margin-top: 6px;
+  color: var(--accentClr);
+  font-size: 8px;
+  font-weight: 700;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.bs-quickreply__form {
+  min-width: 0;
+  width: 100%;
+}
+
+.bs-quickreply__form form,
+.bs-quickreply__form .sceditor-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#quickreply_content:empty {
+  display: none;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+  .bs-member-footer {
+    grid-template-columns: 235px minmax(0, 1fr);
+  }
+
+  .bs-contact-source {
+    grid-column: 2;
+    border-top: 1px solid var(--neutralDarker);
+    justify-content: flex-start;
+  }
+}
+
+
+@media (max-width: 760px) {
+
+  .bs-topic-nav,
+  .bs-topic-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .bs-topic-heading {
+    padding: 20px;
+  }
+
+  .bs-topic-heading h1 {
+    font-size: 24px;
+  }
+
+  .bs-member-head {
+    grid-template-columns: minmax(0, 1fr) 96px;
+  }
+
+  .bs-member-head__identity {
+    padding: 18px;
+  }
+
+  .bs-profile-first {
+    font-size: 29px;
+  }
+
+  .bs-profile-last {
+    font-size: 15px;
+  }
+
+  .bs-post,
+  .bs-post-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bs-message-meta {
+    grid-template-columns: 31px minmax(0, 1fr);
+  }
+
+  .bs-message-actions {
+    grid-column: 2;
+    flex-wrap: wrap;
+  }
+
+  .bs-message-content {
+    min-height: 260px;
+    padding: 22px 18px 40px !important;
+  }
+
+  .bs-member-footer {
+    grid-template-columns: 125px minmax(0, 1fr);
+  }
+
+  .bs-member-footer__image {
+    width: 125px;
+  }
+
+  .bs-contact-source {
+    grid-column: 1 / -1;
+    border-left: 0;
+    border-top: 1px solid var(--neutralDarker);
+    justify-content: flex-start;
+  }
+
+  .bs-quickreply__grid {
+    grid-template-columns: 54px minmax(0, 1fr);
+  }
+
+  .bs-quickreply__avatar {
+    width: 54px;
+  }
+}
+
+
+@media (max-width: 430px) {
+
+  .bs-member-head {
+    grid-template-columns: minmax(0, 1fr) 78px;
+  }
+
+  .bs-member-head__identity {
+    padding: 15px;
+  }
+
+  .bs-profile-first {
+    font-size: 25px;
+  }
+
+  .bs-profile-last {
+    font-size: 13px;
+  }
+
+  .bs-member-footer {
+    grid-template-columns: 92px minmax(0, 1fr);
+  }
+
+  .bs-member-footer__image {
+    width: 92px;
+  }
+
+  .bs-member-footer__relationship {
+    padding: 12px;
+  }
+
+  .bs-member-footer__relationship strong {
+    font-size: 14px;
+  }
+
+  .bs-contact-source {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    padding: 10px;
+  }
+
+  .bs-contact-source a {
+    width: 100%;
+  }
+}
