@@ -1,25 +1,8 @@
 /* ==========================================================================
-   BETWEEN STARS — VIEWTOPIC_BODY
-   CSS uniquement pour le template sujet
+   HEADER DU SUJET
+   navigation + titre + description + boutons
    ========================================================================== */
 
-/*
- * Cette feuille utilise les variables déjà présentes dans ton Blank Theme :
- * --neutral
- * --neutralDark
- * --neutralDarker
- * --accentClr
- * --accentClrDark
- * --textColor
- * --normal-size
- */
-
-
-/* ==========================================================================
-   NAVIGATION DU SUJET
-   ========================================================================== */
-
-.bs-topic-nav,
 .bs-topic-heading,
 .bs-posts,
 .bs-topic-bottom,
@@ -28,104 +11,194 @@
   box-sizing: border-box;
 }
 
-.bs-topic-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  margin: 10px 0;
-}
-
-.bs-topic-nav .navigation_chain {
-  flex: 1;
-}
-
-.bs-topic-nav__actions,
-.bs-topic-bottom,
-.bs-topic-bottom > div {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  flex-wrap: wrap;
-}
-
-.bs-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 30px;
-  padding: 7px 11px !important;
-  border: 1px solid var(--neutralDarker);
-  border-radius: 5px;
-  background: var(--neutral);
-  color: var(--textColor);
-  font-size: 9px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .7px;
-  transition: .2s ease;
-}
-
-.bs-btn:hover {
-  color: var(--accentClr);
-  border-color: var(--accentClr);
-}
-
-.bs-btn--primary {
-  background: var(--accentClr);
-  border-color: var(--accentClr);
-  color: var(--neutral) !important;
-}
-
-.bs-btn--primary:hover {
-  background: var(--accentClrDark);
-  border-color: var(--accentClrDark);
-  color: var(--neutral) !important;
-}
-
-
-/* ==========================================================================
-   TITRE DU SUJET
-   ========================================================================== */
-
 .bs-topic-heading {
-  min-height: 100px;
+  width: 100%;
+  min-height: 150px;
   margin-bottom: 15px;
-  padding: 24px 28px;
+  padding: 28px 32px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 30px;
+
   background: var(--neutral);
   border-radius: 8px;
 }
 
+.bs-topic-heading__main {
+  min-width: 0;
+}
+
+
+/* ---------- breadcrumb intégrée ---------- */
+
 .bs-topic-heading__eyebrow {
-  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin-bottom: 15px;
+
+  color: var(--textColor);
   opacity: .6;
+
   font-size: 8px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
+.bs-topic-brand {
+  white-space: nowrap;
+}
+
+.bs-topic-chain {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  color: var(--accentClr);
+}
+
+.bs-topic-chain a {
+  color: var(--accentClr);
+  font-weight: 700;
+  transition: color .2s ease;
+}
+
+.bs-topic-chain a:hover {
+  color: var(--accentClrDark);
+}
+
+
+/* ---------- titre ---------- */
+
 .bs-topic-heading h1 {
   margin: 0;
+
   color: var(--accentClr);
+
   font-family: Georgia, serif;
-  font-size: 29px;
+  font-size: 34px;
   font-style: italic;
   font-weight: 400;
   line-height: 1.1;
+
   text-align: left;
   text-transform: none;
 }
 
+
+/* ---------- description ---------- */
+
+.bs-topic-description {
+  max-width: 650px;
+  margin-top: 7px;
+
+  color: var(--textColor);
+  opacity: .55;
+
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.bs-topic-description:empty {
+  display: none;
+}
+
+
+/* ---------- participants ---------- */
+
 .bs-topic-heading__posters {
-  margin-top: 10px;
-  opacity: .65;
+  margin-top: 12px;
+  color: var(--textColor);
+  opacity: .6;
   font-size: 9px;
 }
 
 .bs-topic-heading .poster-list {
   justify-content: flex-start;
-  margin: 10px 0 0;
+  margin: 8px 0 0;
+}
+
+
+/* ---------- boutons poster / répondre ---------- */
+
+.bs-topic-heading__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bs-topic-heading__actions .bs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+  padding: 0 18px !important;
+
+  box-sizing: border-box;
+
+  background: var(--neutral);
+  border: 1px solid var(--neutralDarker);
+  border-radius: 6px;
+
+  color: var(--contrast);
+
+  font-family: var(--font), sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+
+.bs-topic-heading__actions .bs-btn--primary {
+  background: var(--accentClr);
+  border-color: var(--accentClr);
+  color: #fff !important;
+}
+
+.bs-topic-heading__actions .bs-btn:not(.bs-btn--primary):hover {
+  background: var(--neutralDark);
+  border-color: var(--accentClr);
+  color: var(--accentClr);
+}
+
+.bs-topic-heading__actions .bs-btn--primary:hover {
+  background: var(--accentClrDark);
+  border-color: var(--accentClrDark);
+  color: #fff !important;
+}
+
+.bs-topic-heading__actions .bs-btn:hover {
+  transform: translateY(-1px);
+}
+
+.bs-topic-heading__pagination {
+  width: 100%;
+  margin-top: 3px;
+  text-align: right;
+  font-size: 9px;
 }
 
 
@@ -1140,18 +1213,35 @@
 
 @media (max-width: 760px) {
 
-  .bs-topic-nav,
   .bs-topic-bottom {
     align-items: flex-start;
     flex-direction: column;
   }
 
   .bs-topic-heading {
-    padding: 20px;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 22px 20px;
+    gap: 20px;
+  }
+
+  .bs-topic-heading__actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .bs-topic-heading__actions .bs-btn {
+    min-height: 36px;
+    padding: 0 14px !important;
+    font-size: 8px;
+  }
+
+  .bs-topic-heading__pagination {
+    text-align: left;
   }
 
   .bs-topic-heading h1 {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .bs-member-head {
